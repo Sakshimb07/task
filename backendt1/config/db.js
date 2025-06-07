@@ -1,32 +1,28 @@
 const mysql = require('mysql2');
 const dotenv = require('dotenv');
-const fs = require('fs');
 
 dotenv.config();
 
-let sslConfig;
-try {
-  sslConfig = {
-    ca: fs.readFileSync('./cert'), // Updated to match the actual file name
-    rejectUnauthorized: true // Enforce certificate validation
-  };
-} catch (err) {
-  console.error('❌ Failed to load SSL certificate:', err.message);
-  throw err;
-}
+console.log('DB Credentials:', {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
+  port: process.env.DB_PORT || 4000,
+  hasPassword: !!process.env.DB_PASS
+});
 
-// Use createConnection with SSL configuration
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
+  password: process.env.DB_PASS, // Updated to match DB_PASS
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT || 4000, // TiDB Cloud default port
-  connectTimeout: 30000, // 30 seconds
-  ssl: sslConfig
+  port: process.env.DB_PORT || 4000,
+  connectTimeout: 30000,
+  ssl: {
+    rejectUnauthorized: true
+  }
 });
 
-// Connect and handle errors
 db.connect((err) => {
   if (err) {
     console.error('❌ MySQL2 connection error:', {

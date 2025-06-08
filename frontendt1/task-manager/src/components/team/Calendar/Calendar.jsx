@@ -52,7 +52,7 @@ const Calendar = () => {
 
   const fetchTasks = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/calendar");
+      const res = await axios.get("https://backendt1-1.onrender.com/api/calendar");
       const grouped = res.data.reduce((acc, task) => {
         if (!acc[task.dateKey]) acc[task.dateKey] = [];
         acc[task.dateKey].push(task);

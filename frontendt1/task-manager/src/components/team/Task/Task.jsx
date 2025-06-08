@@ -78,7 +78,7 @@ export default function Task() {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/api/tasks", payload);
+      const res = await axios.post("https://backendt1-1.onrender.com/api/tasks", payload);
       setTasks((prev) => [...prev, res.data]);
       setNewTask({
         name: "",

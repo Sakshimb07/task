@@ -48,7 +48,7 @@ const BDDashboard = () => {
         const token = localStorage.getItem("token");
         if (!token) return navigate("/login");
 
-        const res = await axios.get("http://localhost:5000/api/tasks/team", {
+        const res = await axios.get("https://backendt1-1.onrender.com/api/tasks/team", {
           headers: { Authorization: `Bearer ${token}` },
         });
 

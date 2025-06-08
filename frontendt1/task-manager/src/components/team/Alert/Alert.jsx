@@ -30,7 +30,7 @@ const Alert = () => {
   const isEditing = formData.id !== null
 
   // Backend base URL - change if needed
-  const BASE_URL = "http://localhost:5000/api/alert"
+  const BASE_URL = "https://backendt1-1.onrender.com/api/alert"
 
   // Fetch alerts from backend on mount
   useEffect(() => {

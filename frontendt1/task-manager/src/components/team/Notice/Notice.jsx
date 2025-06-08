@@ -22,7 +22,7 @@ const Notice = () => {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/notice');
+      const res = await axios.get('https://backendt1-1.onrender.com/api/notice');
       setNotices(res.data);
     } catch (err) {
       console.error('Failed to fetch notices:', err);

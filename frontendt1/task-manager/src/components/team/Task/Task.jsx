@@ -22,7 +22,7 @@ export default function Task() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/tasks"); // Make sure URL matches backend
+        const res = await axios.get("https://backendt1-1.onrender.com/api/tasks"); // Make sure URL matches backend
         setTasks(res.data);
       } catch (error) {
         console.error("Error fetching tasks:", error);

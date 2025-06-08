@@ -77,9 +77,9 @@ const Calendar = () => {
 
     try {
       if (editTaskId) {
-        await axios.put(`http://localhost:5000/api/calendar/${editTaskId}`, payload);
+        await axios.put(`https://backendt1-1.onrender.com/api/calendar/${editTaskId}`, payload);
       } else {
-        await axios.post("http://localhost:5000/api/calendar", payload);
+        await axios.post("https://backendt1-1.onrender.com/api/calendar", payload);
       }
       setNewTaskTitle("");
       setNewTaskTime("12:00");
@@ -101,7 +101,7 @@ const Calendar = () => {
 
   const handleDeleteTask = async (taskId) => {
     try {
-      await axios.delete(`http://localhost:5000/api/calendar/${taskId}`);
+      await axios.delete(`https://backendt1-1.onrender.com/api/calendar/${taskId}`);
       await fetchTasks();
     } catch (err) {
       console.error("Delete error", err);

@@ -43,7 +43,7 @@ const Notice = () => {
       return;
     }
     try {
-      await axios.post('https://backendt1-1.onrender.com/api/notice'), {
+      await axios.post('https://backendt1-1.onrender.com/api/notice', {
         title: formData.title,
         content: formData.description,
         date: formData.date,

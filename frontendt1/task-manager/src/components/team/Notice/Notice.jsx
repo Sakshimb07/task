@@ -22,7 +22,7 @@ const Notice = () => {
 
   const fetchNotices = async () => {
     try {
-      const res = await axios.get('https://backendt1-1.onrender.com/api/notice');
+      const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/notice`);
       setNotices(res.data);
     } catch (err) {
       console.error('Failed to fetch notices:', err);
@@ -43,7 +43,7 @@ const Notice = () => {
       return;
     }
     try {
-      await axios.post('https://backendt1-1.onrender.com/api/notice', {
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/notice`, {
         title: formData.title,
         content: formData.description,
         date: formData.date,
